@@ -137,17 +137,17 @@ def wait_for_key():
             
 
 def main():
-    makrdowns = [Markdown(slide) for slide in slides]
+    markdowns = [Markdown(slide) for slide in slides]
     console = Console()
     curr_slide = 0
     while True:
         console.clear()
-        console.print(makrdowns[curr_slide])
+        console.print(markdowns[curr_slide])
         key = wait_for_key()
         if key == "q":
             return
         if key == 'r':
-            parsed_items = makrdowns[curr_slide].parsed
+            parsed_items = markdowns[curr_slide].parsed
             for parsed_item in parsed_items:
                 if (parsed_item.tag == "code" and 
                     parsed_item.info == "python"):
@@ -160,11 +160,11 @@ def main():
         elif key == '\x00g':
             curr_slide = 0
         elif key == '\x00o':
-            curr_slide = len(makrdowns) - 1           
+            curr_slide = len(markdowns) - 1           
         else:
             curr_slide = curr_slide + 1
-            if curr_slide == len(makrdowns):
-                curr_slide = len(makrdowns) - 1
+            if curr_slide == len(markdowns):
+                curr_slide = len(markdowns) - 1
 
 
 if __name__ == "__main__":
